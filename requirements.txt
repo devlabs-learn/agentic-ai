@@ -1,0 +1,9 @@
+crewai
+crewai-tools
+langgraph
+langchain-openai
+langchain-groq
+autogen
+openai
+python-dotenv
+groq
