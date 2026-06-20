@@ -57,6 +57,7 @@ class TeamState(dict):
     test_plan: str = ""
     review_decision: str = ""
     bugs: str = ""
+    review_count: int = 0
 
 
 def analyst_agent(state: TeamState) -> TeamState:
@@ -96,6 +97,7 @@ def reviewer_agent(state: TeamState) -> TeamState:
     state["review_comments"] = call_groq_ai(prompt)
     # state["review_decision"] = "changes requested" if "changes" in state["review_comments"].lower() else "approved"
     state["review_decision"] = "approved"  # For simplicity, we approve all plans in this example
+    state["review_count"] += 1
 
     return state
 
@@ -112,6 +114,10 @@ def tester_agent(state: TeamState) -> TeamState:
     return state
 
 def decide_next_node(state: TeamState) -> str:
+    # MAX REVIEW condition to terminate review loop
+    if state.get('review_count') > 3:
+        return "tester"
+    
     if state.get("review_decision") == "approved":
         return "tester"
     else:
