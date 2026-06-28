@@ -69,6 +69,8 @@ Session 6 — Evaluation & Deployment
 - Create a retrieval-augmented agent that uses LangGraph to manage context and memory.
 - Simulate multiple agents with AutoGen and measure throughput and task completion.
 - Integrate a web API tool and secure calls with rate limits and error handling.
+- Run the CrewAI personal assistant example in [crewai/personal_assistant.py](crewai/personal_assistant.py) to combine knowledge, memory, and reusable productivity tools in one workflow.
+- Try the focused memory and knowledge demo in [crewai/memory_knowledge_demo.py](crewai/memory_knowledge_demo.py) to see local knowledge plus short-term and long-term memory.
 
 ## Best Practices
 - Modularize agents: separate planner, executor, and memory layers.
