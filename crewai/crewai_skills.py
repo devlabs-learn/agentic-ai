@@ -25,12 +25,12 @@ task = Task(
 crew = Crew(
     agents=[agent],
     tasks=[task],
-    verbose=True,
-    planning=True,
+    # verbose=True,
+    # planning=True,
     skills=["./skills"]
 )
 
 # result = crew.kickoff(inputs={"request": "create a diagram to plan the project?"})
-result = crew.kickoff(inputs={"request": "show me top movies?"})
+result = crew.kickoff(inputs={"request": "create a workflow diagram for learning AI?"})
 
 print(result)
